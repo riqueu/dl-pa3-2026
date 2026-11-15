@@ -248,3 +248,4 @@ scratch/
 venv/
 data/pa3_dados/
 outputs/pseudo_labels/*.npz
+outputs/preds_*.csv

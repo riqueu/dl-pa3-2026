@@ -203,7 +203,7 @@ def fit_student(
 
 
 def train_distilled_student(
-    data_dir: str = "data/pa3_dados",
+    data_dir: Optional[str] = None,
     budget: int = 5,
     seed: int = 42,
     checkpoint: Optional[str] = None,
@@ -225,7 +225,10 @@ def train_distilled_student(
 ) -> Tuple[nn.Module, Dict]:
     """Pipeline completo da Trilha C para um orçamento K e uma seed."""
     set_seed(seed)
+    if data_dir is None:
+        data_dir = "data" if os.path.isdir("data/images") else "data/pa3_dados"
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+    pin = str(device).startswith("cuda")
     class_names, _, _ = load_class_mapping(data_dir)
     n_cls = len(class_names)
 
@@ -247,14 +250,14 @@ def train_distilled_student(
     )
     train_loader = DataLoader(
         train_ds, batch_size=batch_size, sampler=sampler, num_workers=num_workers,
-        drop_last=True, persistent_workers=num_workers > 0,
+        drop_last=True, persistent_workers=num_workers > 0, pin_memory=pin,
     )
     val_ds = ENA24Dataset(
         os.path.join(data_dir, "images", "val"),
         csv_path=os.path.join(data_dir, "labels", "val.csv"),
         transform=get_transforms(224, is_train=False),
     )
-    val_loader = DataLoader(val_ds, batch_size=128, shuffle=False, num_workers=num_workers)
+    val_loader = DataLoader(val_ds, batch_size=128, shuffle=False, num_workers=num_workers, pin_memory=pin)
 
     model = build_student_backbone(arch, n_cls, pretrained=True)
     frozen_bn = freeze_early_layers(model, freeze) if arch == "resnet18" else []
@@ -293,7 +296,7 @@ def train_distilled_student(
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Treina o aluno destilado (Trilha C).")
-    p.add_argument("--data-dir", default="data/pa3_dados")
+    p.add_argument("--data-dir", default="data" if os.path.isdir("data/images") else "data/pa3_dados")
     p.add_argument("--budget", type=int, default=5, choices=[1, 5, 20])
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--checkpoint", default=None)

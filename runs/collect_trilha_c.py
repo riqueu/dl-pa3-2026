@@ -24,7 +24,7 @@ from src.dataset import ENA24Dataset, get_transforms, load_class_mapping  # noqa
 from src.metrics import compute_per_class_f1  # noqa: E402
 from src.models import evaluate_model, load_student_checkpoint  # noqa: E402
 
-DATA = "data/pa3_dados"
+DATA = "data" if os.path.isdir("data/images") else "data/pa3_dados"
 
 
 def main() -> None:

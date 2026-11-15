@@ -68,8 +68,8 @@ def plot_training_curves(
     ax_metric.grid(True, alpha=0.3)
     ax_metric.legend()
 
-    fig.suptitle(title, fontsize=13, fontweight="bold")
-    fig.tight_layout()
+    fig.suptitle(title, fontsize=13, fontweight="bold", y=0.99)
+    fig.tight_layout(rect=[0, 0, 1, 0.96])
 
     if save_path:
         _ensure_parent_dir(save_path)
@@ -158,11 +158,26 @@ def plot_budget_curve(
     palette = {
         "piso": "#1f77b4",
         "baseline": "#1f77b4",
+        "piso_resnet18": "#1f77b4",
+        "piso_small_cnn": "#7f7f7f",
         "trilha_c": "#2ca02c",
         "distill": "#2ca02c",
+        "trilha_c_aluno": "#2ca02c",
+        "professor_bioclip_melhorado": "#ff7f0e",
+    }
+    display_labels = {
+        "piso_resnet18": "Piso (ResNet-18, apenas rótulos humanos)",
+        "piso_small_cnn": "Piso (SmallCNN do zero)",
+        "trilha_c_aluno": "Trilha C — Aluno ResNet-18 (Destilado)",
+        "professor_bioclip_melhorado": "Professor BioCLIP Melhorado (protótipos + refin.)",
     }
 
-    for method_name, group in df_results.groupby("metodo", sort=False):
+    zero_rows = df_results[df_results["orcamento"] <= 0]
+    if teacher_f1 is None and not zero_rows.empty:
+        teacher_f1 = float(zero_rows["f1_macro"].mean())
+
+    plot_df = df_results[df_results["orcamento"] > 0]
+    for method_name, group in plot_df.groupby("metodo", sort=False):
         agg = (
             group.groupby("orcamento")["f1_macro"]
             .agg(["mean", "std"])
@@ -170,24 +185,38 @@ def plot_budget_curve(
             .sort_values("orcamento")
         )
         agg["std"] = agg["std"].fillna(0.0)
-        color = palette.get(str(method_name).lower(), None)
+        key = str(method_name).lower()
+        color = palette.get(key, None)
+        label = display_labels.get(key, str(method_name))
+        is_teacher = "professor" in key
+        is_single = len(agg) == 1
 
         ax.errorbar(
             agg["orcamento"],
             agg["mean"],
             yerr=agg["std"],
-            marker="o",
-            linewidth=2.2,
+            marker="D" if is_single else ("s" if is_teacher else "o"),
+            linestyle="--" if is_teacher else ("None" if is_single else "-"),
+            linewidth=2.0 if is_teacher else 2.2,
             capsize=5,
-            label=str(method_name),
+            label=label,
             color=color,
         )
         for _, row in agg.iterrows():
+            orc = row["orcamento"]
+            if is_teacher:
+                xytext = (0, -14) if orc != 20 else (-16, -2)
+            elif key == "trilha_c_aluno":
+                xytext = (0, -14) if orc == 20 else (0, 8)
+            elif key == "piso_resnet18":
+                xytext = (0, 9)
+            else:
+                xytext = (0, 8)
             ax.annotate(
                 f"{row['mean']:.3f}",
-                (row["orcamento"], row["mean"]),
+                (orc, row["mean"]),
                 textcoords="offset points",
-                xytext=(0, 8),
+                xytext=xytext,
                 ha="center",
                 fontsize=8.5,
             )
@@ -209,15 +238,16 @@ def plot_budget_curve(
         )
 
     ax.set_xscale("log")
-    budgets = sorted(df_results["orcamento"].unique().tolist())
-    ax.set_xticks(budgets)
+    budgets = sorted(plot_df["orcamento"].unique().tolist())
+    if budgets:
+        ax.set_xticks(budgets)
     ax.get_xaxis().set_major_formatter(plt.ScalarFormatter())
     ax.set_xlabel("Orçamento (rótulos por classe, escala log)", fontsize=10.5)
     ax.set_ylabel("F1 Macro (test_public)", fontsize=10.5)
     ax.set_title(title, fontsize=12, fontweight="bold")
     ax.set_ylim(0.0, max(1.0, ceiling_f1 + 0.12))
     ax.grid(True, which="both", alpha=0.3)
-    ax.legend(loc="lower right", frameon=True)
+    ax.legend(loc="upper left", fontsize=8.5, frameon=True, ncol=2)
     fig.tight_layout()
 
     if save_path:
@@ -266,20 +296,20 @@ def plot_per_class_gains(
     ax_left.invert_yaxis()
     ax_left.set_xlim(0.0, 1.05)
     ax_left.set_xlabel("F1 Score")
-    ax_left.set_title("F1 Absoluto por Espécie")
+    ax_left.set_title("F1 Absoluto por Espécie", pad=26)
     ax_left.grid(True, axis="x", alpha=0.3)
-    ax_left.legend(loc="lower right")
+    ax_left.legend(loc="lower center", bbox_to_anchor=(0.5, 1.005), ncol=3, frameon=True, fontsize=8.5)
 
     ax_right = axes[1]
     colors = ["#2ca02c" if d >= 0 else "#d62728" for d in deltas]
     ax_right.barh(y, deltas, color=colors, height=0.6)
     ax_right.axvline(0.0, color="black", linewidth=1.0)
     ax_right.set_xlabel("Ganho ΔF1 (Trilha C − Piso)")
-    ax_right.set_title("Ganho por Classe (Orçamento 5)")
+    ax_right.set_title("Ganho por Classe (Orçamento 5)", pad=26)
     ax_right.grid(True, axis="x", alpha=0.3)
 
-    fig.suptitle(title, fontsize=13, fontweight="bold")
-    fig.tight_layout()
+    fig.suptitle(title, fontsize=13, fontweight="bold", y=0.99)
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
 
     if save_path:
         _ensure_parent_dir(save_path)
@@ -348,8 +378,8 @@ def plot_saliency_gallery(
         ax_cam.set_title(subtitle, fontsize=9.0)
         ax_cam.axis("off")
 
-    fig.suptitle(title, fontsize=13, fontweight="bold")
-    fig.tight_layout()
+    fig.suptitle(title, fontsize=13, fontweight="bold", y=0.99)
+    fig.tight_layout(rect=[0, 0, 1, 0.935])
 
     if save_path:
         _ensure_parent_dir(save_path)

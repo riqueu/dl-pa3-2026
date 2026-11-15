@@ -247,8 +247,10 @@ def build_teacher_cache(
 
 
 def main() -> None:
+    import os
+    default_data_dir = "data" if os.path.isdir("data/images") else "data/pa3_dados"
     parser = argparse.ArgumentParser(description="Gera o cache do professor BioCLIP.")
-    parser.add_argument("--data-dir", default="data/pa3_dados")
+    parser.add_argument("--data-dir", default=default_data_dir)
     parser.add_argument("--splits", nargs="+", default=list(ALLOWED_SPLITS))
     parser.add_argument("--cache-dir", default=CACHE_DIR)
     parser.add_argument("--device", default=None)

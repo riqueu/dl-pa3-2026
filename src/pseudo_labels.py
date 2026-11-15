@@ -414,8 +414,10 @@ def diagnose_on_test_public(
 
 
 def main() -> None:
+    import os
+    default_data_dir = "data" if os.path.isdir("data/images") else "data/pa3_dados"
     p = argparse.ArgumentParser(description="Professor melhorado + pseudo-rótulos (Trilha C).")
-    p.add_argument("--data-dir", default="data/pa3_dados")
+    p.add_argument("--data-dir", default=default_data_dir)
     p.add_argument("--budget", type=int, default=5, choices=[1, 5, 20])
     p.add_argument("--cache-dir", default=CACHE_DIR)
     p.add_argument("--diagnose", action="store_true", help="Reporta o professor no test_public.")

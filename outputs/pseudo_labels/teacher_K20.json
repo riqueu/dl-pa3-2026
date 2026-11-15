@@ -1,0 +1,362 @@
+{
+  "config": {
+    "prompt_set": "rich",
+    "alpha": 0.25,
+    "refine_iters": 0,
+    "refine_top_frac": 0.5
+  },
+  "loo_grid": [
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.3345764254907258,
+      "loo_accuracy": 0.34523809523809523
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.3345764254907258,
+      "loo_accuracy": 0.34523809523809523
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.3345764254907258,
+      "loo_accuracy": 0.34523809523809523
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.4533040568155344,
+      "loo_accuracy": 0.4738095238095238
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.45415276210894995,
+      "loo_accuracy": 0.4714285714285714
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.45835941960209087,
+      "loo_accuracy": 0.4738095238095238
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5420729011775978,
+      "loo_accuracy": 0.5523809523809524
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5390915680240559,
+      "loo_accuracy": 0.5380952380952381
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.528670640993555,
+      "loo_accuracy": 0.5261904761904762
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5720541600327381,
+      "loo_accuracy": 0.5738095238095238
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5471578331643279,
+      "loo_accuracy": 0.5428571428571428
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5416060120791648,
+      "loo_accuracy": 0.5357142857142857
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5733279644455518,
+      "loo_accuracy": 0.5738095238095238
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5367091795407187,
+      "loo_accuracy": 0.530952380952381
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5228059590823081,
+      "loo_accuracy": 0.5142857142857142
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.33536854063848454,
+      "loo_accuracy": 0.3404761904761905
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.33536854063848454,
+      "loo_accuracy": 0.3404761904761905
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.33536854063848454,
+      "loo_accuracy": 0.3404761904761905
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5077300295681317,
+      "loo_accuracy": 0.5166666666666667
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5069899445861419,
+      "loo_accuracy": 0.5071428571428571
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.506267555622838,
+      "loo_accuracy": 0.5071428571428571
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.556060170817707,
+      "loo_accuracy": 0.5619047619047619
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5543269224726161,
+      "loo_accuracy": 0.5547619047619048
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5330343729442011,
+      "loo_accuracy": 0.5333333333333333
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5773216290089355,
+      "loo_accuracy": 0.580952380952381
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5500431673663918,
+      "loo_accuracy": 0.5452380952380952
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5474165758372246,
+      "loo_accuracy": 0.5404761904761904
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5733279644455518,
+      "loo_accuracy": 0.5738095238095238
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5367091795407187,
+      "loo_accuracy": 0.530952380952381
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.5228059590823081,
+      "loo_accuracy": 0.5142857142857142
+    }
+  ],
+  "pseudo_label_params": {
+    "temperature": 1.0,
+    "conf_threshold": 0.5,
+    "min_per_class": 20
+  },
+  "per_class": {
+    "american_black_bear": {
+      "n_pseudo": 424,
+      "n_human": 20,
+      "mean_weight": 0.887922465801239
+    },
+    "american_crow": {
+      "n_pseudo": 433,
+      "n_human": 20,
+      "mean_weight": 0.8873531818389893
+    },
+    "bird": {
+      "n_pseudo": 147,
+      "n_human": 20,
+      "mean_weight": 1.4807020425796509
+    },
+    "bobcat": {
+      "n_pseudo": 76,
+      "n_human": 20,
+      "mean_weight": 1.621976375579834
+    },
+    "chicken": {
+      "n_pseudo": 409,
+      "n_human": 20,
+      "mean_weight": 0.8706603050231934
+    },
+    "coyote": {
+      "n_pseudo": 303,
+      "n_human": 20,
+      "mean_weight": 0.9713956713676453
+    },
+    "dog": {
+      "n_pseudo": 259,
+      "n_human": 20,
+      "mean_weight": 1.0643260478973389
+    },
+    "domestic_cat": {
+      "n_pseudo": 149,
+      "n_human": 20,
+      "mean_weight": 1.245544672012329
+    },
+    "eastern_chipmunk": {
+      "n_pseudo": 243,
+      "n_human": 20,
+      "mean_weight": 1.2077915668487549
+    },
+    "eastern_cottontail": {
+      "n_pseudo": 210,
+      "n_human": 20,
+      "mean_weight": 1.0661364793777466
+    },
+    "eastern_fox_squirrel": {
+      "n_pseudo": 454,
+      "n_human": 20,
+      "mean_weight": 0.7856659293174744
+    },
+    "eastern_gray_squirrel": {
+      "n_pseudo": 393,
+      "n_human": 20,
+      "mean_weight": 0.8832919001579285
+    },
+    "grey_fox": {
+      "n_pseudo": 331,
+      "n_human": 20,
+      "mean_weight": 0.8484578132629395
+    },
+    "horse": {
+      "n_pseudo": 53,
+      "n_human": 20,
+      "mean_weight": 2.3204433917999268
+    },
+    "northern_raccoon": {
+      "n_pseudo": 135,
+      "n_human": 20,
+      "mean_weight": 1.3661080598831177
+    },
+    "red_fox": {
+      "n_pseudo": 207,
+      "n_human": 20,
+      "mean_weight": 1.0744653940200806
+    },
+    "striped_skunk": {
+      "n_pseudo": 181,
+      "n_human": 20,
+      "mean_weight": 1.2725651264190674
+    },
+    "virginia_opossum": {
+      "n_pseudo": 630,
+      "n_human": 20,
+      "mean_weight": 0.6987202763557434
+    },
+    "white_tailed_deer": {
+      "n_pseudo": 150,
+      "n_human": 20,
+      "mean_weight": 1.4309790134429932
+    },
+    "wild_turkey": {
+      "n_pseudo": 208,
+      "n_human": 20,
+      "mean_weight": 1.1797338724136353
+    },
+    "woodchuck": {
+      "n_pseudo": 243,
+      "n_human": 20,
+      "mean_weight": 1.0792347192764282
+    }
+  }
+}

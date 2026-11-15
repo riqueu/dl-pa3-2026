@@ -36,13 +36,38 @@ from src.models import (
     evaluate_model,
     save_student_checkpoint,
 )
-from src.pseudo_labels import PSEUDO_DIR, make_pseudo_labels
+from src.pseudo_labels import PSEUDO_DIR, load_or_make_pseudo_labels
 
 
 def set_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
+
+
+FREEZE_PREFIXES = {
+    "none": (),
+    "layer1": ("conv1.", "bn1.", "layer1."),
+    "layer2": ("conv1.", "bn1.", "layer1.", "layer2."),
+}
+
+
+def freeze_early_layers(model: nn.Module, upto: str = "none") -> List[nn.Module]:
+    """Congela o tronco inicial da ResNet (acelera o treino em CPU ~1,5x).
+
+    Retorna os BatchNorm congelados, que devem ficar em `eval()` no treino.
+    """
+    prefixes = FREEZE_PREFIXES[upto]
+    if not prefixes:
+        return []
+    frozen_bn: List[nn.Module] = []
+    for name, module in model.named_modules():
+        if name and (name + ".").startswith(prefixes):
+            for p in module.parameters(recurse=False):
+                p.requires_grad = False
+            if isinstance(module, nn.BatchNorm2d):
+                frozen_bn.append(module)
+    return frozen_bn
 
 
 class DistillationLoss(nn.Module):
@@ -110,6 +135,7 @@ def fit_student(
     backbone_lr_mult: float = 0.1,
     device: str = "cpu",
     num_classes: int = 21,
+    frozen_bn: Optional[List[nn.Module]] = None,
     log_fn=print,
 ) -> Tuple[nn.Module, Dict[str, List[float]]]:
     """Treina o aluno e restaura o estado de melhor F1 macro no `val`."""
@@ -119,12 +145,14 @@ def fit_student(
         _build_optimizer_param_groups(model, lr, weight_decay, backbone_lr_mult)
     )
     steps = max(1, epochs * len(train_loader))
-    scheduler = torch.optim.lr_scheduler.OneCycleLR(
-        optimizer,
-        max_lr=[g["lr"] for g in optimizer.param_groups],
-        total_steps=steps,
-        pct_start=0.1,
-    )
+    warmup = max(1, int(0.05 * steps))
+
+    def _lr_factor(step: int) -> float:  # warmup linear + cosseno
+        if step < warmup:
+            return (step + 1) / warmup
+        return 0.5 * (1.0 + np.cos(np.pi * (step - warmup) / max(1, steps - warmup)))
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, _lr_factor)
     val_ce = nn.CrossEntropyLoss()
 
     history: Dict[str, List[float]] = {
@@ -136,6 +164,8 @@ def fit_student(
     for epoch in range(1, epochs + 1):
         t0 = time.time()
         model.train()
+        for bn in frozen_bn or []:
+            bn.eval()
         run_loss, n_seen, y_t, y_p = 0.0, 0, [], []
         for images, soft, hard, is_h in train_loader:
             images, soft, hard, is_h = images.to(dev), soft.to(dev), hard.to(dev), is_h.to(dev)
@@ -188,7 +218,8 @@ def train_distilled_student(
     teacher_temperature: float = 1.0,
     conf_threshold: float = 0.5,
     min_per_class: int = 20,
-    num_workers: int = 6,
+    freeze: str = "layer1",
+    num_workers: int = 4,
     device: Optional[str] = None,
     pseudo_dir: str = PSEUDO_DIR,
 ) -> Tuple[nn.Module, Dict]:
@@ -198,7 +229,7 @@ def train_distilled_student(
     class_names, _, _ = load_class_mapping(data_dir)
     n_cls = len(class_names)
 
-    pl = make_pseudo_labels(
+    pl = load_or_make_pseudo_labels(
         data_dir,
         budget,
         out_dir=pseudo_dir,
@@ -226,6 +257,7 @@ def train_distilled_student(
     val_loader = DataLoader(val_ds, batch_size=128, shuffle=False, num_workers=num_workers)
 
     model = build_student_backbone(arch, n_cls, pretrained=True)
+    frozen_bn = freeze_early_layers(model, freeze) if arch == "resnet18" else []
     print(
         f"[aluno] {arch}: {count_parameters(model):,} parâmetros | treino {len(train_ds)} "
         f"({int(train_ds.is_human.sum())} humanos) | {device}"
@@ -234,6 +266,7 @@ def train_distilled_student(
     model, history = fit_student(
         model, train_loader, val_loader, criterion, epochs=epochs, lr=lr,
         backbone_lr_mult=backbone_lr_mult, device=device, num_classes=n_cls,
+        frozen_bn=frozen_bn,
     )
 
     meta = {
@@ -247,6 +280,7 @@ def train_distilled_student(
             "backbone_lr_mult": backbone_lr_mult, "kd_temperature": kd_temperature,
             "human_lambda": human_lambda, "teacher_temperature": teacher_temperature,
             "conf_threshold": conf_threshold, "min_per_class": min_per_class,
+            "freeze": freeze,
         },
     }
     if checkpoint:
@@ -274,14 +308,15 @@ def main() -> None:
     p.add_argument("--teacher-temperature", type=float, default=1.0)
     p.add_argument("--conf-threshold", type=float, default=0.5)
     p.add_argument("--min-per-class", type=int, default=20)
-    p.add_argument("--num-workers", type=int, default=6)
+    p.add_argument("--freeze", default="layer1", choices=list(FREEZE_PREFIXES))
+    p.add_argument("--num-workers", type=int, default=4)
     p.add_argument("--device", default=None)
     a = p.parse_args()
     ckpt = a.checkpoint or f"checkpoints/student_K{a.budget}_s{a.seed}.pth"
     train_distilled_student(
         a.data_dir, a.budget, a.seed, ckpt, a.arch, a.epochs, a.epoch_size, a.batch_size, a.lr,
         a.backbone_lr_mult, a.kd_temperature, a.human_lambda, a.teacher_temperature,
-        a.conf_threshold, a.min_per_class, a.num_workers, a.device,
+        a.conf_threshold, a.min_per_class, a.freeze, a.num_workers, a.device,
     )
 
 

@@ -369,6 +369,26 @@ def make_pseudo_labels(
     return pl
 
 
+def load_or_make_pseudo_labels(
+    data_dir: str,
+    budget: int,
+    cache_dir: str = CACHE_DIR,
+    out_dir: str = PSEUDO_DIR,
+    **pl_kwargs,
+) -> Dict[str, np.ndarray]:
+    """Reaproveita `pseudo_K{K}.npz` se foi gerado com os mesmos parâmetros."""
+    npz_path = os.path.join(out_dir, f"pseudo_K{budget}.npz")
+    meta_path = os.path.join(out_dir, f"teacher_K{budget}.json")
+    if os.path.isfile(npz_path) and os.path.isfile(meta_path):
+        with open(meta_path) as f:
+            if json.load(f).get("pseudo_label_params") == pl_kwargs:
+                with np.load(npz_path, allow_pickle=False) as d:
+                    pl = {k: d[k] for k in d.files}
+                pl["image_ids"] = pl["image_ids"].astype(str)
+                return pl
+    return make_pseudo_labels(data_dir, budget, cache_dir, out_dir, **pl_kwargs)
+
+
 def diagnose_on_test_public(
     data_dir: str, budget: int, cache_dir: str = CACHE_DIR, out_dir: str = DIAG_DIR
 ) -> Dict[str, Dict]:

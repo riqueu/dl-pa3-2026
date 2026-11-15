@@ -1,0 +1,16 @@
+metodo,orcamento,seed,f1_macro,acuracia
+piso_resnet18,1,42,0.168937,0.203453
+piso_resnet18,5,42,0.447995,0.477189
+piso_resnet18,5,43,0.423072,0.462392
+piso_resnet18,5,44,0.428991,0.458693
+piso_resnet18,20,42,0.595293,0.637485
+piso_small_cnn,5,42,0.197846,0.208385
+professor_bioclip_melhorado,1,0,0.326668,0.350185
+professor_bioclip_melhorado,5,0,0.514187,0.516646
+professor_bioclip_melhorado,20,0,0.585975,0.604192
+professor_bioclip_zero_shot,0,0,0.30779,0.353884
+trilha_c_aluno,1,42,0.357881,0.415536
+trilha_c_aluno,5,42,0.509407,0.567201
+trilha_c_aluno,5,43,0.536046,0.5709
+trilha_c_aluno,5,44,0.519748,0.553637
+trilha_c_aluno,20,42,0.55795,0.620222

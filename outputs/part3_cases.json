@@ -1,0 +1,87 @@
+{
+  "checkpoint": "checkpoints/best_student.pth",
+  "errors": [
+    {
+      "image_id": "ece8e099eb242e5d",
+      "true_label": "dog",
+      "pred_label": "chicken",
+      "confidence": 0.999,
+      "is_infrared": true,
+      "center_border_ratio": 1.8457,
+      "note": "Noite/IR | foco centro/borda=1.85",
+      "gradcam_occlusion_corr": 0.4878
+    },
+    {
+      "image_id": "c58f1fa1c43a36c3",
+      "true_label": "bird",
+      "pred_label": "chicken",
+      "confidence": 0.9985,
+      "is_infrared": true,
+      "center_border_ratio": 2.2076,
+      "note": "Noite/IR | foco centro/borda=2.21",
+      "gradcam_occlusion_corr": 0.4157
+    },
+    {
+      "image_id": "d5e8556f2469415e",
+      "true_label": "bobcat",
+      "pred_label": "eastern_fox_squirrel",
+      "confidence": 0.9961,
+      "is_infrared": false,
+      "center_border_ratio": 2.1122,
+      "note": "Dia | foco centro/borda=2.11",
+      "gradcam_occlusion_corr": 0.5798
+    }
+  ],
+  "successes": [
+    {
+      "image_id": "4cc7a1000e655306",
+      "true_label": "virginia_opossum",
+      "pred_label": "virginia_opossum",
+      "confidence": 1.0,
+      "is_infrared": true,
+      "center_border_ratio": 2.3687,
+      "note": "Noite/IR | foco centro/borda=2.37",
+      "gradcam_occlusion_corr": 0.3886
+    },
+    {
+      "image_id": "36b76a4de3eb66c5",
+      "true_label": "american_black_bear",
+      "pred_label": "american_black_bear",
+      "confidence": 1.0,
+      "is_infrared": true,
+      "center_border_ratio": 2.4731,
+      "note": "Noite/IR | foco centro/borda=2.47",
+      "gradcam_occlusion_corr": 0.4734
+    },
+    {
+      "image_id": "6f0ec138fffad951",
+      "true_label": "woodchuck",
+      "pred_label": "woodchuck",
+      "confidence": 1.0,
+      "is_infrared": false,
+      "center_border_ratio": 2.1909,
+      "note": "Dia | foco centro/borda=2.19",
+      "gradcam_occlusion_corr": 0.5258
+    },
+    {
+      "image_id": "beb9e909a2af4997",
+      "true_label": "coyote",
+      "pred_label": "coyote",
+      "confidence": 1.0,
+      "is_infrared": true,
+      "center_border_ratio": 3.0981,
+      "note": "Noite/IR | foco centro/borda=3.10",
+      "gradcam_occlusion_corr": 0.5453
+    },
+    {
+      "image_id": "da8ff7533223dff0",
+      "true_label": "eastern_chipmunk",
+      "pred_label": "eastern_chipmunk",
+      "confidence": 1.0,
+      "is_infrared": false,
+      "center_border_ratio": 2.1707,
+      "note": "Dia | foco centro/borda=2.17",
+      "gradcam_occlusion_corr": 0.1735
+    }
+  ]
+}

@@ -256,12 +256,12 @@
     "american_black_bear": {
       "n_pseudo": 424,
       "n_human": 20,
-      "mean_weight": 0.887922465801239
+      "mean_weight": 0.8879225850105286
     },
     "american_crow": {
       "n_pseudo": 433,
       "n_human": 20,
-      "mean_weight": 0.8873531818389893
+      "mean_weight": 0.8873533010482788
     },
     "bird": {
       "n_pseudo": 147,
@@ -271,42 +271,42 @@
     "bobcat": {
       "n_pseudo": 76,
       "n_human": 20,
-      "mean_weight": 1.621976375579834
+      "mean_weight": 1.621972918510437
     },
     "chicken": {
       "n_pseudo": 409,
       "n_human": 20,
-      "mean_weight": 0.8706603050231934
+      "mean_weight": 0.8706603646278381
     },
     "coyote": {
       "n_pseudo": 303,
       "n_human": 20,
-      "mean_weight": 0.9713956713676453
+      "mean_weight": 0.9713953733444214
     },
     "dog": {
       "n_pseudo": 259,
       "n_human": 20,
-      "mean_weight": 1.0643260478973389
+      "mean_weight": 1.064326524734497
     },
     "domestic_cat": {
       "n_pseudo": 149,
       "n_human": 20,
-      "mean_weight": 1.245544672012329
+      "mean_weight": 1.2455461025238037
     },
     "eastern_chipmunk": {
       "n_pseudo": 243,
       "n_human": 20,
-      "mean_weight": 1.2077915668487549
+      "mean_weight": 1.2077913284301758
     },
     "eastern_cottontail": {
       "n_pseudo": 210,
       "n_human": 20,
-      "mean_weight": 1.0661364793777466
+      "mean_weight": 1.066137671470642
     },
     "eastern_fox_squirrel": {
       "n_pseudo": 454,
       "n_human": 20,
-      "mean_weight": 0.7856659293174744
+      "mean_weight": 0.7856664657592773
     },
     "eastern_gray_squirrel": {
       "n_pseudo": 393,
@@ -316,37 +316,37 @@
     "grey_fox": {
       "n_pseudo": 331,
       "n_human": 20,
-      "mean_weight": 0.8484578132629395
+      "mean_weight": 0.848457932472229
     },
     "horse": {
       "n_pseudo": 53,
       "n_human": 20,
-      "mean_weight": 2.3204433917999268
+      "mean_weight": 2.3204405307769775
     },
     "northern_raccoon": {
       "n_pseudo": 135,
       "n_human": 20,
-      "mean_weight": 1.3661080598831177
+      "mean_weight": 1.3661082983016968
     },
     "red_fox": {
       "n_pseudo": 207,
       "n_human": 20,
-      "mean_weight": 1.0744653940200806
+      "mean_weight": 1.0744667053222656
     },
     "striped_skunk": {
       "n_pseudo": 181,
       "n_human": 20,
-      "mean_weight": 1.2725651264190674
+      "mean_weight": 1.2725645303726196
     },
     "virginia_opossum": {
       "n_pseudo": 630,
       "n_human": 20,
-      "mean_weight": 0.6987202763557434
+      "mean_weight": 0.6987196803092957
     },
     "white_tailed_deer": {
       "n_pseudo": 150,
       "n_human": 20,
-      "mean_weight": 1.4309790134429932
+      "mean_weight": 1.4309792518615723
     },
     "wild_turkey": {
       "n_pseudo": 208,
@@ -356,7 +356,7 @@
     "woodchuck": {
       "n_pseudo": 243,
       "n_human": 20,
-      "mean_weight": 1.0792347192764282
+      "mean_weight": 1.0792346000671387
     }
   }
 }

@@ -1,0 +1,101 @@
+{
+  "checkpoints/piso_small_cnn_K5_s42.pth": {
+    "metodo": "piso_small_cnn",
+    "orcamento": 5,
+    "seed": 42,
+    "val_f1": 0.21374126548557187,
+    "val_acc": 0.2623762376237624,
+    "test_f1": 0.19784556477540086,
+    "test_acc": 0.20838471023427868
+  },
+  "checkpoints/piso_K1_s42.pth": {
+    "metodo": "piso_resnet18",
+    "orcamento": 1,
+    "seed": 42,
+    "val_f1": 0.24864295368497044,
+    "val_acc": 0.24257425742574257,
+    "test_f1": 0.1689370216315726,
+    "test_acc": 0.2034525277435265
+  },
+  "checkpoints/piso_K20_s42.pth": {
+    "metodo": "piso_resnet18",
+    "orcamento": 20,
+    "seed": 42,
+    "val_f1": 0.582073639199542,
+    "val_acc": 0.5841584158415841,
+    "test_f1": 0.5952932678613208,
+    "test_acc": 0.6374845869297164
+  },
+  "checkpoints/piso_K5_s42.pth": {
+    "metodo": "piso_resnet18",
+    "orcamento": 5,
+    "seed": 42,
+    "val_f1": 0.3999164625782321,
+    "val_acc": 0.400990099009901,
+    "test_f1": 0.447994807493225,
+    "test_acc": 0.47718865598027127
+  },
+  "checkpoints/piso_K5_s43.pth": {
+    "metodo": "piso_resnet18",
+    "orcamento": 5,
+    "seed": 43,
+    "val_f1": 0.34517760740632497,
+    "val_acc": 0.3465346534653465,
+    "test_f1": 0.42307217249862966,
+    "test_acc": 0.4623921085080148
+  },
+  "checkpoints/piso_K5_s44.pth": {
+    "metodo": "piso_resnet18",
+    "orcamento": 5,
+    "seed": 44,
+    "val_f1": 0.4095525017483614,
+    "val_acc": 0.38613861386138615,
+    "test_f1": 0.4289907022471333,
+    "test_acc": 0.45869297163995065
+  },
+  "checkpoints/student_K1_s42.pth": {
+    "metodo": "trilha_c_aluno",
+    "orcamento": 1,
+    "seed": 42,
+    "val_f1": 0.4036977950399819,
+    "val_acc": 0.42574257425742573,
+    "test_f1": 0.35788135408461413,
+    "test_acc": 0.4155363748458693
+  },
+  "checkpoints/student_K20_s42.pth": {
+    "metodo": "trilha_c_aluno",
+    "orcamento": 20,
+    "seed": 42,
+    "val_f1": 0.5125652562037641,
+    "val_acc": 0.5247524752475248,
+    "test_f1": 0.5579499273915137,
+    "test_acc": 0.6202219482120839
+  },
+  "checkpoints/student_K5_s42.pth": {
+    "metodo": "trilha_c_aluno",
+    "orcamento": 5,
+    "seed": 42,
+    "val_f1": 0.518933131461047,
+    "val_acc": 0.5247524752475248,
+    "test_f1": 0.5094066239861527,
+    "test_acc": 0.5672009864364982
+  },
+  "checkpoints/student_K5_s43.pth": {
+    "metodo": "trilha_c_aluno",
+    "orcamento": 5,
+    "seed": 43,
+    "val_f1": 0.49927635998151165,
+    "val_acc": 0.5148514851485149,
+    "test_f1": 0.5360462378088693,
+    "test_acc": 0.5709001233045623
+  },
+  "checkpoints/student_K5_s44.pth": {
+    "metodo": "trilha_c_aluno",
+    "orcamento": 5,
+    "seed": 44,
+    "val_f1": 0.4540367172458304,
+    "val_acc": 0.44554455445544555,
+    "test_f1": 0.5197480495297669,
+    "test_acc": 0.5536374845869297
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "config": {
+    "prompt_set": "rich",
+    "alpha": 1.0,
+    "refine_iters": 0,
+    "refine_top_frac": 0.5
+  },
+  "loo_grid": [
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.29365079365079366,
+      "loo_accuracy": 0.3333333333333333
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.29365079365079366,
+      "loo_accuracy": 0.3333333333333333
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 1.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.29365079365079366,
+      "loo_accuracy": 0.3333333333333333
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.047619047619047616,
+      "loo_accuracy": 0.047619047619047616
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.75,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.11904761904761904,
+      "loo_accuracy": 0.14285714285714285
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.5,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.25,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "names",
+      "alpha": 0.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.35714285714285715,
+      "loo_accuracy": 0.42857142857142855
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.35714285714285715,
+      "loo_accuracy": 0.42857142857142855
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 1.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.35714285714285715,
+      "loo_accuracy": 0.42857142857142855
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.07142857142857142,
+      "loo_accuracy": 0.09523809523809523
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.75,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.11904761904761904,
+      "loo_accuracy": 0.14285714285714285
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.5,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.25,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 0,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 1,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    },
+    {
+      "prompt_set": "rich",
+      "alpha": 0.0,
+      "refine_iters": 2,
+      "refine_top_frac": 0.5,
+      "loo_f1_macro": 0.0,
+      "loo_accuracy": 0.0
+    }
+  ],
+  "pseudo_label_params": {
+    "temperature": 1.0,
+    "conf_threshold": 0.5,
+    "min_per_class": 20
+  },
+  "per_class": {
+    "american_black_bear": {
+      "n_pseudo": 401,
+      "n_human": 1,
+      "mean_weight": 0.9383592009544373
+    },
+    "american_crow": {
+      "n_pseudo": 363,
+      "n_human": 1,
+      "mean_weight": 1.0700271129608154
+    },
+    "bird": {
+      "n_pseudo": 6,
+      "n_human": 1,
+      "mean_weight": 4.738304615020752
+    },
+    "bobcat": {
+      "n_pseudo": 52,
+      "n_human": 1,
+      "mean_weight": 2.089982509613037
+    },
+    "chicken": {
+      "n_pseudo": 64,
+      "n_human": 1,
+      "mean_weight": 2.1253304481506348
+    },
+    "coyote": {
+      "n_pseudo": 89,
+      "n_human": 1,
+      "mean_weight": 1.7099415063858032
+    },
+    "dog": {
+      "n_pseudo": 543,
+      "n_human": 1,
+      "mean_weight": 0.7376515865325928
+    },
+    "domestic_cat": {
+      "n_pseudo": 320,
+      "n_human": 1,
+      "mean_weight": 0.9534997940063477
+    },
+    "eastern_chipmunk": {
+      "n_pseudo": 202,
+      "n_human": 1,
+      "mean_weight": 1.0208673477172852
+    },
+    "eastern_cottontail": {
+      "n_pseudo": 214,
+      "n_human": 1,
+      "mean_weight": 1.1369742155075073
+    },
+    "eastern_fox_squirrel": {
+      "n_pseudo": 193,
+      "n_human": 1,
+      "mean_weight": 1.0550707578659058
+    },
+    "eastern_gray_squirrel": {
+      "n_pseudo": 246,
+      "n_human": 1,
+      "mean_weight": 0.9005762338638306
+    },
+    "grey_fox": {
+      "n_pseudo": 93,
+      "n_human": 1,
+      "mean_weight": 1.7611656188964844
+    },
+    "horse": {
+      "n_pseudo": 47,
+      "n_human": 1,
+      "mean_weight": 2.5156431198120117
+    },
+    "northern_raccoon": {
+      "n_pseudo": 93,
+      "n_human": 1,
+      "mean_weight": 1.6386183500289917
+    },
+    "red_fox": {
+      "n_pseudo": 407,
+      "n_human": 1,
+      "mean_weight": 0.8341822624206543
+    },
+    "striped_skunk": {
+      "n_pseudo": 169,
+      "n_human": 1,
+      "mean_weight": 1.3005627393722534
+    },
+    "virginia_opossum": {
+      "n_pseudo": 930,
+      "n_human": 1,
+      "mean_weight": 0.5930410623550415
+    },
+    "white_tailed_deer": {
+      "n_pseudo": 162,
+      "n_human": 1,
+      "mean_weight": 1.42132568359375
+    },
+    "wild_turkey": {
+      "n_pseudo": 345,
+      "n_human": 1,
+      "mean_weight": 0.9473032355308533
+    },
+    "woodchuck": {
+      "n_pseudo": 75,
+      "n_human": 1,
+      "mean_weight": 1.883939266204834
+    }
+  }
+}

@@ -243,3 +243,8 @@ testvenv/
 runs/**/*.pth
 scratch/
 
+
+# Ambiente local e dados extraídos
+venv/
+data/pa3_dados/
+outputs/pseudo_labels/*.npz
